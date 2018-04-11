@@ -1,0 +1,114 @@
+{
+    "comercios": [
+     {
+    "_id": "1",
+    "picture": "http://placehold.it/32x32",
+    "company": "OMATOM",
+    "sector": "restaurant",
+    "phone": "+1 (813) 525-3747",
+    "address": "361 Moore Street, Tyhee, North Carolina, 9560",
+    "rating": 3,
+    "latitude": 46.436785,
+    "longitude": 60.790057
+  },
+  {
+    "_id": "2",
+    "picture": "http://placehold.it/32x32",
+    "company": "ENDIPINE",
+    "sector": "comida Rapida",
+    "phone": "+1 (943) 483-3900",
+    "address": "508 Roosevelt Court, Warsaw, Utah, 2639",
+    "rating": 5,
+    "latitude": 28.740021,
+    "longitude": 64.966965
+  },
+  {
+    "_id": "3",
+    "picture": "http://placehold.it/32x32",
+    "company": "ZILLATIDE",
+    "sector": "licoreria",
+    "phone": "+1 (949) 532-2753",
+    "address": "406 Boulevard Court, Brandermill, Colorado, 8940",
+    "rating": 3,
+    "latitude": 5.036527,
+    "longitude": -137.647174
+  },
+  {
+    "_id": "4",
+    "picture": "http://placehold.it/32x32",
+    "company": "AVIT",
+    "sector": "comida Rapida",
+    "phone": "+1 (968) 547-3327",
+    "address": "113 Macdougal Street, Aguila, Ohio, 5378",
+    "rating": 3,
+    "latitude": -37.826747,
+    "longitude": 151.423968
+  },
+  {
+    "_id": "5",
+    "picture": "http://placehold.it/32x32",
+    "company": "ORBOID",
+    "sector": "mercado",
+    "phone": "+1 (819) 510-2486",
+    "address": "334 Guernsey Street, Mathews, Kansas, 352",
+    "rating": 3,
+    "latitude": -28.531351,
+    "longitude": 82.839851
+  },
+  {
+    "_id": "6",
+    "picture": "http://placehold.it/32x32",
+    "company": "PARAGONIA",
+    "sector": "farmacia",
+    "phone": "+1 (905) 583-3294",
+    "address": "874 Rugby Road, Robinson, New York, 3991",
+    "rating": 3,
+    "latitude": 8.588206,
+    "longitude": 38.93772
+  },
+  {
+    "_id": "7",
+    "picture": "http://placehold.it/32x32",
+    "company": "NETPLAX",
+    "sector": "mercado",
+    "phone": "+1 (961) 504-2387",
+    "address": "844 Trucklemans Lane, Sims, Wisconsin, 4009",
+    "rating": 3,
+    "latitude": -73.853283,
+    "longitude": 33.765859
+  },
+  {
+    "_id": "8",
+    "picture": "http://placehold.it/32x32",
+    "company": "SKYBOLD",
+    "sector": "mercado",
+    "phone": "+1 (812) 504-2352",
+    "address": "905 Independence Avenue, Taft, Wyoming, 4419",
+    "rating": 3,
+    "latitude": -65.629807,
+    "longitude": -29.241163
+  },
+  {
+    "_id": "9",
+    "picture": "http://placehold.it/32x32",
+    "company": "TERRAGEN",
+    "sector": "comida Rapida",
+    "phone": "+1 (874) 514-2342",
+    "address": "287 Jewel Street, Kerby, New Mexico, 4147",
+    "rating": 3,
+    "latitude": 16.043381,
+    "longitude": 172.821554
+  },
+  {
+    "_id": "10",
+    "picture": "http://placehold.it/32x32",
+    "company": "MEDALERT",
+    "sector": "restaurant",
+    "phone": "+1 (838) 527-2604",
+    "address": "180 Harden Street, Holcombe, Massachusetts, 8941",
+    "rating": 5,
+    "latitude": -22.231213,
+    "longitude": -149.264656
+  }
+] 
+}

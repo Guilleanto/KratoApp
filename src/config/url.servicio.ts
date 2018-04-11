@@ -1,0 +1,1 @@
+export const URL_SERVICIOS = "assets/data2.json";
