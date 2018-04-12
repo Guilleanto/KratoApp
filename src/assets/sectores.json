@@ -1,0 +1,23 @@
+{
+    "sectores":[{
+            "id": 1,
+            "descripcion": "Farmacia",
+            "icono": "car"
+    },{
+            "id": 2,
+            "descripcion": "Restaurant",
+            "icono": "car"
+    },{
+        "id": 3,
+            "descripcion": "Mercado",
+            "icono": "car"
+    },{
+            "id": 4,
+            "descripcion": "Licoreria",
+            "icono": "car"
+    },{
+        "id": 5,
+            "descripcion": "Comida Rapida",
+            "icono": "car"
+    }]
+}

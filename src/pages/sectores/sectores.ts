@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SectoresPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DataServicio } from '../../providers/data/data';
+import { ComerciosxSectorPage } from "../comerciosx-sector/comerciosx-sector";
 
 @IonicPage()
 @Component({
@@ -15,7 +11,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SectoresPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  porSector = ComerciosxSectorPage;
+
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _ds: DataServicio) {
   }
 
   ionViewDidLoad() {

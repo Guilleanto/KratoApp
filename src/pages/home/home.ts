@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { DataProvider } from '../../providers/data/data';
+import { DataServicio } from '../../providers/data/data';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,7 @@ import { DataProvider } from '../../providers/data/data';
 export class HomePage {
 
  
-  constructor(public navCtrl: NavController, private _ds: DataProvider) {
+  constructor(public navCtrl: NavController, private _ds: DataServicio) {
 
   }
 

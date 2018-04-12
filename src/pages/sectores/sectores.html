@@ -1,18 +1,19 @@
-<!--
-  Generated template for the SectoresPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Sectores</ion-title>
+    <ion-title>Sectoresss</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content >
+<h2 text-center>lista:</h2>
+  <ion-list>
+      <button ion-item *ngFor = "let item of _ds.sectores" [navPush]="porSector" [navParams]="{ sector: item}">
+        <ion-icon [name]="item.icono" item-left ></ion-icon>
+        {{item.descripcion}}
+      </button>
+  </ion-list>
 </ion-content>

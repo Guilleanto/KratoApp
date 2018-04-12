@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataServicio } from '../../providers/data/data';
 
-/**
- * Generated class for the ComerciosxSectorPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -14,8 +10,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'comerciosx-sector.html',
 })
 export class ComerciosxSectorPage {
+  sector: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _ds: DataServicio) {
+    this.sector = this.navParams.get('sector');
+    
+    this._ds.filtrar_por_sector(this.sector.descripcion);
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

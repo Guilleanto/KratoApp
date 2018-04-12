@@ -5,18 +5,22 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { SectoresPage } from '../pages/sectores/sectores';
+import { ComerciosxSectorPage } from '../pages/comerciosx-sector/comerciosx-sector';
 
 import { HttpModule} from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { DataProvider } from '../providers/data/data';
+import { DataServicio } from '../providers/data/data';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    SectoresPage,
+    ComerciosxSectorPage
   ],
   imports: [
     BrowserModule,
@@ -27,13 +31,16 @@ import { DataProvider } from '../providers/data/data';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    SectoresPage,
+    ListPage,
+    ComerciosxSectorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DataServicio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    
   ]
 })
 export class AppModule {}

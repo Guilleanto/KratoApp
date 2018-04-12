@@ -1,35 +1,60 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { URL_SERVICIOS } from '../../config/url.servicio';
-/*
-  Generated class for the DataProvider provider.
+//import { URL_SERVICIOS } from '../../config/url.servicio';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class DataProvider {
-comercios: any[] = [];
-
+export class DataServicio {
+comercios: any;
+sectores: any;
+por_sector: any[]= [];
 
   constructor(public http: Http) {
-    //console.log('Hello DataProvider Provider');
+    
     this.cargar_data();
+    this.cargar_sector();
   }
 
+
+cargar_sector(){
+  let url = 'assets/sectores.json';
+  this.http.get(url).map( resp => resp.json()).subscribe(data => {
+    if (data.error){
+      console.log(data.error);
+    }else{
+      this.sectores = data.sectores;
+      console.log(this.sectores);
+    }
+  })
+}
+
+
 cargar_data( ){
-  let url = URL_SERVICIOS;
+  let url = 'assets/data2.json';
   this.http.get(url).map(resp => resp.json()).subscribe(data => {
     console.log();
     if(data.error){
       console.log(data.error);
     }else{
-      this.comercios.push (data.comercios);
+      this.comercios = data.comercios ;
       console.log(this.comercios);
     }
     
   })
+}
+filtrar_por_sector(se:string){
+  let url ="assets/data2.json";
+  this.http.get(url).map(resp => resp.json()).subscribe(data => {
+    console.log();
+    if(data.error){
+      console.log(data.error);
+    }else{
+      this.por_sector = data.comercios ;
+      this.por_sector = this.por_sector.filter(a=>a.sector==se);
+      console.log(this.por_sector);
+    }
+    
+  });
 }
 
 }
