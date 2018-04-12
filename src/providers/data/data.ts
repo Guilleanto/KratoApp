@@ -56,5 +56,12 @@ filtrar_por_sector(se:string){
     
   });
 }
+filtrar_busqueda(termino){
+ 
+  return this.comercios.filter((item) => {
+      return item.title.toLowerCase().indexOf(termino.toString().toLowerCase()) > -1;
+  });    
+
+}
 
 }

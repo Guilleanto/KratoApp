@@ -10,6 +10,7 @@ import { ComerciosxSectorPage } from '../pages/comerciosx-sector/comerciosx-sect
 import { DetallesComercioPage } from '../pages/detalles-comercio/detalles-comercio';
 
 import { HttpModule} from '@angular/http';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,6 +29,7 @@ import { DataServicio } from '../providers/data/data';
   imports: [
     BrowserModule,
     HttpModule,
+    Ionic2RatingModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

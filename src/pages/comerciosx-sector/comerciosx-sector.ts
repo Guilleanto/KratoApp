@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormControl } from '@angular/forms';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { DataServicio } from '../../providers/data/data';
 import { DetallesComercioPage } from '../detalles-comercio/detalles-comercio';
+import 'rxjs/add/operator/debounceTime';
 
 
 @IonicPage()
@@ -14,17 +16,45 @@ export class ComerciosxSectorPage {
   detalles = DetallesComercioPage;
   rating:boolean = false;
   comercios:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _ds: DataServicio) {
+  rate:any;
+  termino: string = '';
+  items:any;
+  buscar_control: FormControl;
+  searching: any = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public LoadCtrl: LoadingController, private _ds: DataServicio) {
     this.sector = this.navParams.get('sector');
-    
     this._ds.filtrar_por_sector(this.sector.descripcion);
-    this.comercios = this._ds.por_sector;
+    this.buscar_control = new FormControl();
+    
   }
 
   ionViewDidLoad() {
-    this.rating = false;
-    console.log('ionViewDidLoad ComerciosxSectorPage');
+
+
+    let loading = this.LoadCtrl.create({
+      spinner: 'dots',
+      content: 'Buscando...'
+    });
+  
+    loading.present();
+    this.termino_buscar();
+    this.buscar_control.valueChanges.debounceTime(700).subscribe(search => {
+ 
+      this.termino_buscar();
+      this.searching = false;
+  });
+    setTimeout(() => {
+      this.comercios = this._ds.por_sector;
+      
+      console.log(this.comercios);
+      loading.dismiss();
+    }, 2000);
+    
+    
+   
   }
+  
   
   sortRatings(){
     let opcion ;
@@ -48,5 +78,15 @@ export class ComerciosxSectorPage {
     }
     });
   }
+  termino_buscar() {
+ 
+    this.items = this._ds.filtrar_busqueda(this.termino);
 
+}
+onCancel(){
+  this.termino = '';
+}
+onSearchInput(){
+  this.searching = true;
+}
 }
