@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SectoresPage } from '../pages/sectores/sectores';
 import { ComerciosxSectorPage } from '../pages/comerciosx-sector/comerciosx-sector';
+import { DetallesComercioPage } from '../pages/detalles-comercio/detalles-comercio';
 
 import { HttpModule} from '@angular/http';
 
@@ -14,13 +15,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataServicio } from '../providers/data/data';
 
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
     SectoresPage,
-    ComerciosxSectorPage
+    ComerciosxSectorPage,
+    DetallesComercioPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { DataServicio } from '../providers/data/data';
     HomePage,
     SectoresPage,
     ListPage,
-    ComerciosxSectorPage
+    ComerciosxSectorPage,
+    DetallesComercioPage
   ],
   providers: [
     StatusBar,

@@ -9,8 +9,12 @@
 
 
 <ion-content padding>
-<ion-list >
-  <ion-item *ngFor = "let item of _ds.por_sector">
+    <ion-item>
+        <ion-label> Ordenar por rating</ion-label>
+        <ion-toggle  [(ngModel)]="rating" (ionChange)="sortRatings()"></ion-toggle>
+      </ion-item>
+<ion-list  >
+  <ion-item *ngFor = "let item of comercios">
       <ion-thumbnail item-left>
         <img [src]="item.picture" alt="">
       </ion-thumbnail>
@@ -18,7 +22,7 @@
       <h2>{{item.address}}</h2>
       <h2>{{item.rating}}</h2>
       <h2>{{item.phone}}</h2>
-      <button ion-button  clear item-right  >
+      <button ion-button  clear item-right [navPush]="detalles" [navParams] ="{comercio : item}"  >
         Ver
       </button>
   </ion-item>
