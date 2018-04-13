@@ -30,15 +30,14 @@ export class ComerciosxSectorPage {
   }
 
   ionViewDidLoad() {
-
-
+    this.termino_buscar();
     let loading = this.LoadCtrl.create({
       spinner: 'dots',
       content: 'Buscando...'
     });
   
     loading.present();
-    this.termino_buscar();
+    
     this.buscar_control.valueChanges.debounceTime(700).subscribe(search => {
  
       this.termino_buscar();
@@ -79,10 +78,11 @@ export class ComerciosxSectorPage {
     });
   }
   termino_buscar() {
- 
-    this.items = this._ds.filtrar_busqueda(this.termino);
+    
+    this.comercios = this._ds.filtrar_busqueda(this.termino);
 
 }
+
 onCancel(){
   this.termino = '';
 }

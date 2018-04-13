@@ -1,3 +1,18 @@
 page-sectores {
-
+    .toolbar-background {
+        background-color: #f37820;
+      }
+      .toolbar-title-md{
+        color: #f4f4f4;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+        color: #f4f4f4;
+    }
+    .item-md{
+        background-color: transparent;
+        color: #ff7800;
+    }
+    .font{
+        font-size: 24px !important;
+    }
 }

@@ -2,14 +2,48 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{comercio.company}}</ion-title>
+    <ion-title text-center>{{comercio.company}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-   
-  
+    <ion-card>
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="comercio.picture">
+          </ion-avatar>
+          <h2 text-center>{{comercio.sector}}</h2>
+          <rating [(ngModel)]="comercio.rating" 
+        readOnly="true" 
+        max="5" 
+        emptyStarIconName="star-outline" 
+        halfStarIconName="star-half"  
+        starIconName="star" 
+        nullable="false" 
+        (ngModelChange)="onModelChange($event)"> 
+            </rating>
+          <p>{{comercio.address}}</p>
+          <p>{{comercio.phone}}</p>
+        </ion-item>
+      
+        <img [src]="comercio.photo">
+      
+        <ion-card-content>
+          <p>{{comercio.descripcion}}</p>
+        </ion-card-content>
+      </ion-card>
+  <ion-card>
+      <ion-card-header>
+         <h2 text-center>Ubicación de {{comercio.company}}</h2> 
+        </ion-card-header>
+  <ion-card-content>    
+        <agm-map [zoom]="16" [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+  </ion-card-content>
+</ion-card>
     
 </ion-content>

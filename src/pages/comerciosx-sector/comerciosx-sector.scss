@@ -1,4 +1,10 @@
 page-comerciosx-sector {
+  .toolbar-background {
+    background-color: #f37820;
+  }
+  .toolbar-title-md{
+    color: #f4f4f4;
+}
     ul {
   padding: 0px;
   margin: 0;
@@ -6,7 +12,7 @@ page-comerciosx-sector {
   &.rating li {
     padding: 5px 5px !important;
     background: none;
-    color: #ffb400;
+    color: #fde001;
 
     ion-icon {
       font-size: 13px;
@@ -17,5 +23,15 @@ page-comerciosx-sector {
     width: 100%;
     text-align: center;
     padding: 10px;
+    margin-bottom: 10px;
+}
+.item-md{
+  border-radius: 20px;
+  background-color: #ff8a00;
+  border: 3px white solid;
+  margin-bottom: 10px;
+}
+.button-clear-md{
+  color: black;
 }
 }

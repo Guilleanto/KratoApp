@@ -15,8 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetallesComercioPage {
 comercio:any;
+lat: number ;
+  lng: number ;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.comercio = this.navParams.get('comercio');
+    this.lat = this.comercio.latitude;
+    this.lng = this.comercio.longitude;
   }
 
   ionViewDidLoad() {

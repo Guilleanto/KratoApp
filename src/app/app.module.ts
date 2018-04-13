@@ -15,7 +15,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataServicio } from '../providers/data/data';
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,15 @@ import { DataServicio } from '../providers/data/data';
     ListPage,
     SectoresPage,
     ComerciosxSectorPage,
-    DetallesComercioPage
+    DetallesComercioPage,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     Ionic2RatingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCxVq0AccijXFh5gAykBBhzSSaVFsP-cwo'
+    }),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

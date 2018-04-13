@@ -1,14 +1,14 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Krato App</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+    <ion-list class="color-list">
+      <button  class="color" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <h2  class="color-font">{{p.title}}</h2>
       </button>
     </ion-list>
   </ion-content>

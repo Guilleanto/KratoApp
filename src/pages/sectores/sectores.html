@@ -12,11 +12,10 @@
 
 
 <ion-content >
-<h2 text-center>lista:</h2>
   <ion-list>
       <button ion-item *ngFor = "let item of _ds.sectores" [navPush]="porSector" [navParams]="{ sector: item}">
         <ion-icon [name]="item.icono" item-left ></ion-icon>
-        {{item.descripcion}}
+        <h2 class="font">{{item.descripcion}}</h2>
       </button>
   </ion-list>
 </ion-content>

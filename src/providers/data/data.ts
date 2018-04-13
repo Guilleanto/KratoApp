@@ -56,11 +56,13 @@ filtrar_por_sector(se:string){
     
   });
 }
-filtrar_busqueda(termino){
+filtrar_busqueda(termino:any){
  
-  return this.comercios.filter((item) => {
-      return item.title.toLowerCase().indexOf(termino.toString().toLowerCase()) > -1;
-  });    
+  return this.por_sector.filter((item) => {
+      return item.company.toLowerCase().indexOf(termino.toString().toLowerCase()) > -1;
+     // return item.descripcion.toLowerCase().indexOf(termino.toString().toLowerCase()) > -1;
+  });
+      
 
 }
 
