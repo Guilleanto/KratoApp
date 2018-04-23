@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { KronoUrl } from '../../config/url.servicio';
 // https://krono-dev-3.herokuapp.com/
-
-// Categorias activas en una tienda https://krono-dev-3.herokuapp.com/chain/18/store/25/categories/active/
+// https://github.com/angular/angular/tree/master/packages/common/http LIBRERIA HTTP ANGULAR 4
 @Injectable()
 export class DataServicio {
 comercios: any;
