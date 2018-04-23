@@ -15,7 +15,31 @@ page-home {
           margin-bottom: 30px;
 
       }
-      img{
-          margin-bottom: 20px;
+      agm-map {
+        height: 200px;
       }
+      ion-card {
+        position: relative;
+        text-align: center;
+      }
+      button{
+          padding: 0;
+      }
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 1.3em;
+        width: 100%;
+        font-weight: bold;
+        color: #843636;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 75%;
+        width: 100%;
+        color: #fff;
+      }
+    
 }

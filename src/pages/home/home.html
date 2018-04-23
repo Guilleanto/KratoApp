@@ -8,14 +8,34 @@
 </ion-header>
 
 <ion-content padding>
-  <h3 text-center>Bienvenido a Krato App </h3><p text-center>una app de </p>
-  <img src="assets/imgs/Krono-Group.png" />
+  <h3 text-center>Bienvenido a  {{store.name}} </h3><p text-center>una app de KronoGroup </p>
+  <ion-card>
+    <ion-card-header>
+       <h2 text-center>Ubicación de {{store.name}}</h2> 
+      </ion-card-header>
+<ion-card-content>    
+      <agm-map [zoom]="16" [latitude]="6.2616442" [longitude]="-75.5972725">
+        <agm-marker [latitude]="6.2616442" [longitude]="-75.5972725"></agm-marker>
+      </agm-map>
+</ion-card-content>
+</ion-card>
+  <h3 text-center>Categorias</h3>
+<ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let cat of categorias">
+        <ion-card (click)="ProductoPage(cat.id)">
+          <img src= {{image}}{{cat.image}} >
+          <div class="card-title">{{cat.description}}</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+  <!--<img src="assets/imgs/Krono-Group.png" />
   <p>
     Realiza pedidos a cualquier tienda en tu ciudad ¡desde donde quieras!
   </p>
   <br>
   <h3 text-center>Ubica y compara precios de tus lugares favoritos </h3>
   <div text-center>
-  <button ion-button secondary menuToggle>Comenzemos</button>
-</div>
+  <button ion-button secondary menuToggle>Comenzemos</button>-->
 </ion-content>
