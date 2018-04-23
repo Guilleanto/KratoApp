@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { SectoresPage } from '../pages/sectores/sectores';
 import { ComerciosxSectorPage } from '../pages/comerciosx-sector/comerciosx-sector';
 import { DetallesComercioPage } from '../pages/detalles-comercio/detalles-comercio';
+import { ProductosCategoriaPage } from '../pages/productos-categoria/productos-categoria';
 
 import { HttpModule} from '@angular/http';
 import { Ionic2RatingModule } from 'ionic2-rating';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataServicio } from '../providers/data/data';
 import { AgmCoreModule } from '@agm/core';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,6 +27,7 @@ import { AgmCoreModule } from '@agm/core';
     SectoresPage,
     ComerciosxSectorPage,
     DetallesComercioPage,
+    ProductosCategoriaPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { AgmCoreModule } from '@agm/core';
     SectoresPage,
     ListPage,
     ComerciosxSectorPage,
-    DetallesComercioPage
+    DetallesComercioPage,
+    ProductosCategoriaPage
   ],
   providers: [
     StatusBar,

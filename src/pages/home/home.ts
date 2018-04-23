@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { DataServicio } from '../../providers/data/data';
 import { KronoUrl } from '../../config/url.servicio';
 import { DetallesComercioPage } from '../detalles-comercio/detalles-comercio';
+import { ProductosCategoriaPage } from '../productos-categoria/productos-categoria';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ export class HomePage {
   lng:any;
   image:any;
   detalles = DetallesComercioPage;
-  constructor(public navCtrl: NavController, private _ds: DataServicio) {
+  constructor(public navCtrl: NavController, private _ds: DataServicio, private navaParams: NavParams) {
     this.cargar_data();
     this.cargar_categorias();
   }
@@ -46,6 +47,7 @@ export class HomePage {
     })
   }
   ProductoPage(id){
+      this.navCtrl.push(ProductosCategoriaPage, id) // Abrir pagina de productos por categoria con la id de la cat
       console.log(id);
   }
 }

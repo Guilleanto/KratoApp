@@ -25,15 +25,31 @@ page-home {
       button{
           padding: 0;
       }
+      .image-container{
+          background-size: cover;
+      }
+      @media screen and (max-width: 699px){
       .card-title {
         position: absolute;
         top: 36%;
-        font-size: 1.3em;
+        font-size: 16px;
         width: 100%;
         font-weight: bold;
         color: #843636;
+        text-align: center;
       }
-    
+    }
+    @media screen and (min-width: 700px){
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 20px;
+          width: 100%;
+          font-weight: bold;
+          color: #843636;
+          text-align: center;
+        }
+      }
       .card-subtitle {
         font-size: 1.0em;
         position: absolute;
