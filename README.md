@@ -36,21 +36,22 @@ Next, open and edit 'src/app/app.module.ts' then add this import.
 
 ```typescript
 import { HttpClientModule } from '@angular/common/http';
-
+```
 Then register it to '@NgModule' imports after 'BrowserModule', so it will look like this.
 
+```typescript
 imports: [
   BrowserModule,
   HttpClientModule,
   IonicModule.forRoot(MyApp)
 ],
 ```
-  then import at the provider.ts
-  
+Then import at the provider.ts
+
 ```typescript
 import { HttpClient } from '@angular/common/http';
 ```
-Constructor
+Constructor: 
 ```typescript
 constructor(public http: HttpClient) {
   console.log('Hello RestServiceProvider Provider');
