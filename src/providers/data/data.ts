@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { KronoUrl } from '../../config/url.servicio';
 // https://krono-dev-3.herokuapp.com/
@@ -15,26 +16,42 @@ tienda: any = 25;
 categorias:any;
 store: any[]  = [];
 
-  constructor(public http: Http) {
-    
-   /* this.cargar_data();
-    this.cargar_sector();*/
+  constructor(public http: Http, public Http2 : HttpClient) {
+  
     this.cargar_categorias();
   }
-cargar_tiendas(){
-  let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda +'/';
-  return this.http.get(url).map(resp => resp.json());
-}
- cargar_categorias(){
+  cargar_tiendas(){ // Nueva Libreria Angular HttpClientModule (Angular 4)
+    let  url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda +'/';
+    return new Promise(resolve =>{
+      this.Http2.get(url).subscribe(data => {
+        resolve(data)
+      },err =>{
+        console.log(err);
+      });
+   });
+ }
+ cargar_categorias(){// Nueva Libreria Angular HttpClientModule (Angular 4)
   let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda +'/categories/';
-  return this.http.get(url).map(resp => resp.json());
+  return new Promise(resolve =>{
+    this.Http2.get(url).subscribe(data => {
+      resolve(data)
+    },err =>{
+      console.log(err);
+    });
+ });
  }
  cargar_productos(cat){
    let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda+'/category/'+cat+'/products/';
-   return this.http.get(url).map(resp => resp.json());
+   return new Promise(resolve =>{
+    this.Http2.get(url).subscribe(data => {
+      resolve(data)
+    },err =>{
+      console.log(err);
+    });
+ });
  }
 
- 
+
  /*cargar_sector(){
   let url = 'assets/sectores.json';
   this.http.get(url).map( resp => resp.json()).subscribe(data => {
