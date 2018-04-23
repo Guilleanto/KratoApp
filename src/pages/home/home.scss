@@ -11,10 +11,6 @@ page-home {
       .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
           color: #f4f4f4;
       }
-      p{
-          margin-bottom: 30px;
-
-      }
       agm-map {
         height: 200px;
       }
@@ -24,6 +20,10 @@ page-home {
       }
       button{
           padding: 0;
+      }
+      .kronoimg{
+          text-align: center;
+          width: 20%;
       }
       .image-container{
           background-size: cover;
@@ -35,7 +35,7 @@ page-home {
         font-size: 16px;
         width: 100%;
         font-weight: bold;
-        color: #843636;
+        color: #f4f4f4;
         text-align: center;
       }
     }

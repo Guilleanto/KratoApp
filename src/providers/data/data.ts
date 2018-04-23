@@ -29,6 +29,12 @@ cargar_tiendas(){
   let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda +'/categories/';
   return this.http.get(url).map(resp => resp.json());
  }
+ cargar_productos(cat){
+   let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda+'/category/'+cat+'/products/';
+   return this.http.get(url).map(resp => resp.json());
+ }
+
+ 
  /*cargar_sector(){
   let url = 'assets/sectores.json';
   this.http.get(url).map( resp => resp.json()).subscribe(data => {

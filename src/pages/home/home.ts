@@ -47,7 +47,7 @@ export class HomePage {
     })
   }
   ProductoPage(id){
-      this.navCtrl.push(ProductosCategoriaPage, id) // Abrir pagina de productos por categoria con la id de la cat
+      this.navCtrl.push(ProductosCategoriaPage, {id: id}); // Abrir pagina de productos por categoria con la id de la cat
       console.log(id);
   }
 }
