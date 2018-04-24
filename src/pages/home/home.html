@@ -28,7 +28,7 @@
     <ion-grid>
         <ion-row>
           <ion-col col-6 col-md-4 col-xl-3 *ngFor="let cat of categorias">
-              <div class="image-container" (click)="ProductoPage(cat.id)">
+              <div class="image-container" (click)="ProductoPage(cat.id, cat.description)">
                   <img src= {{image}}{{cat.image}} >
                   <div class="card-title">{{cat.description}}</div>
               </div>
