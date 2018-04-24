@@ -18,9 +18,7 @@ chain:any = 18;
 tienda: any = 25;
 categorias:any;
 store: any[]  = [];
-email:any = 'guillermo@gmail.com';
-password:any = '12345678';
-token:any;
+
 
   constructor(public http: Http, public Http2 : HttpClient,private platform: Platform,
      private storage: Storage) {
@@ -49,80 +47,6 @@ token:any;
   });
  }
 
- // CARGAR PRODUCTOS CON TOKE Y AUTH JWT OBTENIDO DEL STORAGE
- cargar_productos(cat){
-  if(this.platform.is("cordova")){
-    this.storage.get("token").then((val) => {
-      this.token = val;
-    });
-   }else{
-    this.token = localStorage.getItem("tokenLocal");
-    console.log(this.token);
-   }
-  let headers = new Headers();
-  headers.append( 'Content-Type', 'application/json');
-  headers.append('Authorization', 'JWT '+this.token);
-   let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda+'/category/'+cat+'/products/';
-   return new Promise(resolve =>{
-      this.http.get(url, {headers: headers} ).map(resp => resp.json()).subscribe(data => {
-        resolve(data)
-        console.log(data);
-      },err =>{
-        console.log(err);
-      });
-    });
- }
-
-
-//cargar token de sesion administrador y guardar el token en el Storage
-
- cargar_usuario(email:string, pass:string){
-  let headers = new Headers();
-  headers.append( 'Content-Type', 'application/json');
-  let body = { 
-    'email': email,
-    'password': pass
-  };
-  let url = Kronodev+'/api-token-auth-administrator/';
-  return new Promise(resolve => {
-      this.http.post(url, JSON.stringify(body), {headers: headers})
-        .map(resp => resp.json()).subscribe( data => {
-           resolve(data);
-            if(this.platform.is("cordova")){
-              this.storage.set('token', data.token);
-            }else{
-              localStorage.setItem("tokenLocal", data.token);
-            }
-            },err =>{
-              console.log(err);
-        }) 
-   });
- }
-  /*cargar_sector(){
-    let url = 'assets/sectores.json';
-    this.http.get(url).map( resp => resp.json()).subscribe(data => {
-      if (data.error){
-        console.log(data.error);
-      }else{
-        this.sectores = data.sectores;
-        console.log(this.sectores);
-      }
-    })
-  }
-  cargar_data( ){
-    let url = 'assets/data2.json';
-    this.http.get(url).map(resp => resp.json()).subscribe(data => {
-      console.log();
-      if(data.error){
-        console.log(data.error);
-      }else{
-        this.comercios = data.comercios ;
-        console.log(this.comercios);
-      }
-      
-    })
-  }
-  */
   filtrar_por_sector(se:string){
     let url ="assets/data2.json";
     this.http.get(url).map(resp => resp.json()).subscribe(data => {

@@ -27,12 +27,13 @@ export class HomePage {
      private navaParams: NavParams, private storage: Storage, private platform : Platform,
     public loader: LoadingController) {
   
-    this.cargar_data();
-    this.usuario();
+      this.cargar_data();
+    
     
   }
  
   cargar_data(){
+    
     let loading = this.loader.create({
       spinner: 'dots',
       content: 'Iniciando...'
@@ -68,11 +69,5 @@ export class HomePage {
         
       }); 
       console.log(id);
-  }
-  // iniciando la app con un usuario para obtener token
-  usuario(){
-    this._ds.cargar_usuario(this.email, this.password).then((data:any)=>{
-      console.log(data);
-    })
   }
 }
