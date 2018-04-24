@@ -10,10 +10,10 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 col-md-4 col-xl-3 > <!-- ngfor -->
+      <ion-col col-6 col-md-4 col-xl-3 *ngFor="let prod of productos"> <!-- ngfor -->
           <div class="image-container" >
               <img src=  >
-              <div class="card-title"></div>
+              <div class="card-title">{{prod.description}}</div>
           </div>
       </ion-col>
     </ion-row>

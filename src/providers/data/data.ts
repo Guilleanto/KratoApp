@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { Http, URLSearchParams, Headers } from '@angular/http';
+import { HttpClient,  } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { KronoUrl } from '../../config/url.servicio';
+import { KronoUrl, Kronodev } from '../../config/url.servicio';
+import { Storage } from '@ionic/storage';
+import { Platform } from 'ionic-angular';
+
 // https://krono-dev-3.herokuapp.com/
 // https://github.com/angular/angular/tree/master/packages/common/http LIBRERIA HTTP ANGULAR 4
 @Injectable()
@@ -14,9 +17,12 @@ chain:any = 18;
 tienda: any = 25;
 categorias:any;
 store: any[]  = [];
+email:any = 'guillermo@gmail.com';
+password:any = '12345678';
+token:any;
 
-  constructor(public http: Http, public Http2 : HttpClient) {
-  
+  constructor(public http: Http, public Http2 : HttpClient,private platform: Platform, private storage: Storage) {
+    
     this.cargar_categorias();
   }
   cargar_tiendas(){ // Nueva Libreria Angular HttpClientModule (Angular 4)
@@ -40,15 +46,55 @@ store: any[]  = [];
  });
  }
  cargar_productos(cat){
+  if(this.platform.is("cordova")){
+    this.storage.get("token").then((val) => {
+      this.token = val;
+      
+    });
+   }else{
+    this.token = localStorage.getItem("tokenLocal");
+    console.log(this.token);
+   }
+  let headers = new Headers();
+  headers.append( 'Content-Type', 'application/json');
+  headers.append('Authorization', 'JWT '+this.token);
    let url = KronoUrl+'/chain/'+this.chain +'/store/'+this.tienda+'/category/'+cat+'/products/';
    return new Promise(resolve =>{
-    this.Http2.get(url).subscribe(data => {
+    this.http.get(url, {headers: headers} ).map(resp => resp.json()).subscribe(data => {
       resolve(data)
+      console.log(data);
     },err =>{
       console.log(err);
     });
  });
  }
+
+ cargar_usuario(email:string, pass:string){ //cargar token de sesion administrador
+   
+  let headers = new Headers();
+  headers.append( 'Content-Type', 'application/json');
+  let body = { 
+    'email': email,
+    'password': pass
+  };
+   let url = Kronodev+'/api-token-auth-administrator/';
+
+   return new Promise(resolve => {
+      this.http.post(url, JSON.stringify(body), {headers: headers})
+      .map(resp => resp.json()).subscribe( data => {
+       resolve(data);
+       if(this.platform.is("cordova")){
+        this.storage.set('token', data.token);
+       }else{
+        localStorage.setItem("tokenLocal", data.token);
+       }
+      
+      },err =>{
+        console.log(err);
+      }) 
+   });
+ }
+
 
 
  /*cargar_sector(){

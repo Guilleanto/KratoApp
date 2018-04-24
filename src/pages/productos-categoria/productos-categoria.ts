@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { DataServicio } from '../../providers/data/data';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ import { DataServicio } from '../../providers/data/data';
 export class ProductosCategoriaPage {
   id_cat:any;
   productos: any[] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _ds: DataServicio) {
+  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams, private platform: Platform, private _ds: DataServicio) {
     //console.log(this.navParams.get('id'));
     this.id_cat = this.navParams.get('id');
   }
@@ -20,13 +21,9 @@ ionViewDidLoad() {
     this.cargar_productos(this.id_cat);
   }
 cargar_productos(cat){
-    this._ds.cargar_productos(cat).subscribe(data => {
-      if(data.error){
-        console.log(data.error);
-      }else{
-        this.productos = data;
-        console.log(this.productos);
-      }
+    this._ds.cargar_productos(cat).then((data:any) => {
+      this.productos = data;
+      console.log(this.productos);
     })
 }
 }
